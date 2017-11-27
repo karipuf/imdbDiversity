@@ -64,6 +64,7 @@ ethdict={tmp[0]:','.join([tmp2['best'] for tmp2 in tmp[1]]) for tmp in ethdicttm
 gini=lambda instr:castGiniDiv(instr,dndict,ethdict)
 dp['gini']=dp.principalCast.apply(gini)
 dgr=pd.merge(dr,dp,on='tconst')
+dgr['constant']=1
 
 # Regressions
 dgrFiltered=dgr[dgr.numVotes>1000]
@@ -71,5 +72,5 @@ lr1=sm.regression.linear_model.OLS(dgrFiltered.averageRating,dgrFiltered[['gini'
 lr2=sm.regression.linear_model.OLS(dgrFiltered.numVotes,dgrFiltered[['gini','constant']])
 
 # Printing out the results
-lr1.fit().summary()
-lr2.fit().summary()
+print(lr1.fit().summary())
+print(lr2.fit().summary())
