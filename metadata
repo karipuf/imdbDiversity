@@ -1,0 +1,3 @@
+* Downloaded 7th October 2017
+* First run "filterNames.py" to get the subset of names that we are using. In most cases just use the cached csv files (listed inside)
+* Then run "diversityRatings" for analysis of Gini vs numVotes or averageRatings
